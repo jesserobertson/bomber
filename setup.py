@@ -36,7 +36,7 @@ setup(
     long_description=read('readme.md'),
     author='Jess Robertson',
     author_email='jesse.robertson@csiro.au',
-    url='https://stash.csiro.au/projects/POH/repos/proxify',
+    url='https://stash.csiro.au/projects/POH/repos/bomber',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Plugins',
@@ -51,7 +51,6 @@ setup(
         'Topic :: Scientific/Engineering :: Mathematics',
         'Topic :: Scientific/Engineering :: Physics',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: Scientific/Engineering :: Geology',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7'
