@@ -14,7 +14,7 @@ import logging
 
 PROJECT = 'bomber'
 LOGGER = logging.getLogger(PROJECT)
-VERSION_PY = os.path.join(PROJECT, '_version.py')
+VERSION_PY = '_version.py'
 
 VERSION_PY_TEMPLATE = """\
 \"\"\" file:  _version.py ({project})

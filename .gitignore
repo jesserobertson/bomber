@@ -8,3 +8,4 @@ build
 dist
 bomber.egg-info
 examples/*.geotiff*
+_version.py
