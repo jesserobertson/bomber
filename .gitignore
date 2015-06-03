@@ -8,4 +8,7 @@ build
 dist
 bomber.egg-info
 examples/*.geotiff*
+examples/temperature_*
+examples/solar_*
+examples/rainfall_*
 _version.py
