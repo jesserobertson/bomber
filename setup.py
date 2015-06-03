@@ -10,7 +10,7 @@
 
 import os
 from setuptools import setup, find_packages
-from bomber.update_version import update_version, Version, get_version
+from update_version import update_version, Version, get_version
 
 def read(*paths):
     """ Build a file path from *paths and return the contents.
