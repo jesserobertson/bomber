@@ -5,5 +5,6 @@
 """
 
 from .converters import grid_to_geotiff
+from ._version import __version__
 
-__all__ = ['grid_to_geotiff']
+__all__ = ['__version__', 'grid_to_geotiff']
