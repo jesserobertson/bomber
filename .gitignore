@@ -1,0 +1,10 @@
+.ipynb_checkpoints
+__pycache__
+*.pyc
+*.sublime-workspace
+bomber/_version.py
+*.tiff
+build
+dist
+bomber.egg-info
+examples/*.geotiff*
