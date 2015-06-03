@@ -42,7 +42,7 @@ def _check_options(dataset, variable, timespan, date):
 
 
 def get_measurements(dataset='temperature', variable=None, timespan='month', 
-                     year=2014, month=1):
+                     year=2014, month=1, filename=None):
     """ Get some measurements from BoM's demented non-existant API
     """
     # Make datestring from year and month
@@ -57,7 +57,8 @@ def get_measurements(dataset='temperature', variable=None, timespan='month',
     _check_options(**options)
 
     # Generate filename
-    filename = '{dataset}_{variable}_{timespan}_{date}'.format(**options)
+    if not filename:
+        filename = '{dataset}_{variable}_{timespan}_{date}'.format(**options)
 
     # Download and munge data
     response = requests.get(URI.format(**options))
