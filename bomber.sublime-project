@@ -5,7 +5,7 @@
 			"path": ".",
 			"name": "Project files",
 			"folder_exclude_patterns": ["bomber", "build", "dist",
-			                            "*.egg-info", "examples"]
+			                            "*.egg-info", "examples", "__pycache__"]
 		},
 		{
 			"path": "bomber",
@@ -17,7 +17,7 @@
 			"path": "examples",
 			"name": "Examples",
 			"folder_exclude_patterns": [".ipynb_checkpoints"],
-			"file_exclude_patterns": []
+			"file_exclude_patterns": ["rainfall_*", "solar_*", "temperature_*"]
 		}
 	]
 }
