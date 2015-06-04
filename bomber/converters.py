@@ -47,9 +47,8 @@ def grid_to_geotiff(filename, return_data=False):
 
     ## MAKE GEOTIFF
     # Generate the transform for the grid
-    aff = affine.Affine(1, 0, 0, 0, 1, 0)
-    aff = aff.translation(meta['xllcenter'], meta['yllcenter']) \
-    	  * aff.scale(meta['cellsize'])
+    aff = affine.Affine.translation(meta['xllcenter'], meta['yllcenter']) \
+    	  * affine.Affine.scale(meta['cellsize'], -meta['cellsize'])
 
     # Make metadata for geotiff
     geotiff_meta = {
