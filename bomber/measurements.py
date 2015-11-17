@@ -8,15 +8,13 @@
 
 from __future__ import print_function, division
 
-from .converters import grid_to_geotiff
+from .utilities import download, option_checker
 
 import calendar
-import requests
-import subprocess
-import rasterio
 
 # Info about service
-URI = "http://www.bom.gov.au/web03/ncc/www/awap/{dataset}/{variable}/{timespan}/grid/0.05/history/nat/{date}.grid.Z"
+URI = "http://www.bom.gov.au/web03/ncc/www/awap/{dataset}" + \
+      "/{variable}/{timespan}/grid/0.05/history/nat/{date}.grid.Z"
 DATASETS = {
     'temperature': ['maxave', 'minave'],
     'rainfall': ['totals'],
@@ -26,53 +24,29 @@ DATASETS = {
 }
 TIMESPANS = ['month', 'daily']
 
-
-def _check_options(dataset, variable, timespan, date):
-    """ Checks that values for options are correct
-    """
-    checks = [
-        ('dataset', dataset, DATASETS.keys()),
-        ('variable', variable, DATASETS[dataset]),
-        ('period', timespan, TIMESPANS)
-    ]
-    err_str = 'Argument {0}={1} is unknown. Allowed values for {0} are {2}.'
-    for arg, value, allowed_values in checks:
-        if value not in allowed_values:
-            raise ValueError(err_str.format(arg, value, allowed_values))
-
-
-def get_measurements(dataset='temperature', variable=None, timespan='month', 
+def get_measurements(dataset='temperature', variable=None, timespan='month',
                      year=2014, month=1, filename=None):
     """ Get some measurements from BoM's demented non-existant API
     """
     # Make datestring from year and month
     lastday = calendar.monthrange(year, month)[1]
     date_string = '{0}{1:02d}01{0}{1:02d}{2}'.format(year, month, lastday)
-    
-    # Generate options list from arguments
-    options = {'dataset': dataset, 
-               'variable': variable or DATASETS[dataset][0], 
-               'timespan': timespan, 
-               'date': date_string}
-    _check_options(**options)
+
+    # Generate options list from arguments & check
+    option_checker(
+        dataset=(dataset, DATASETS.keys()),
+        timespan=(timespan, TIMESPANS))
+    variable = variable or DATASETS[dataset][0]
+    option_checker(
+        variable=(variable, DATASETS[dataset]))
+    options = {'dataset': dataset,
+               'timespan': timespan,
+               'date': date_string,
+               'variable': variable}
 
     # Generate filename
     if not filename:
         filename = '{dataset}_{variable}_{timespan}_{date}'.format(**options)
 
     # Download and munge data
-    response = requests.get(URI.format(**options))
-    if response.ok:
-        zipfilename = filename + '.Z'
-        with open(zipfilename, 'wb') as sink:
-            sink.write(response.content)
-            subprocess.call(['uncompress', zipfilename])
-
-        # Convert data to geotiff
-        grid_to_geotiff(filename)
-        geotiff = filename + '.geotiff'
-        print('Downloaded data to {0}'.format(geotiff))
-        return geotiff
-
-    else:
-        print('Download failed')
+    return download(URI, options, filename)

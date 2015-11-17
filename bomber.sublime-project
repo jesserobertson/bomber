@@ -1,23 +1,29 @@
 {
-	"folders":
-	[
-		{
-			"path": ".",
-			"name": "Project files",
-			"folder_exclude_patterns": ["bomber", "build", "dist",
-			                            "*.egg-info", "examples", "__pycache__"]
-		},
-		{
-			"path": "bomber",
-			"name": "Source",
-			"folder_exclude_patterns": ["__pycache__"],
-			"file_exclude_patterns": ["*.pyc"]
-		},
-		{
-			"path": "examples",
-			"name": "Examples",
-			"folder_exclude_patterns": [".ipynb_checkpoints"],
-			"file_exclude_patterns": ["rainfall_*", "solar_*", "temperature_*"]
-		}
-	]
+    "folders":
+    [
+        {
+            "path": ".",
+            "name": "Project files",
+            "folder_exclude_patterns": ["bomber", "tests", "build", "dist",
+                                        "*.egg-info", "examples", "__pycache__"]
+        },
+        {
+            "path": "bomber",
+            "name": "Source",
+            "folder_exclude_patterns": ["__pycache__"],
+            "file_exclude_patterns": ["*.pyc"]
+        },        
+        {
+            "path": "tests",
+            "name": "Tests",
+            "folder_exclude_patterns": ["__pycache__"],
+            "file_exclude_patterns": ["*.pyc"]
+        },
+        {
+            "path": "examples",
+            "name": "Examples",
+            "folder_exclude_patterns": [".ipynb_checkpoints"],
+            "file_exclude_patterns": []
+        }
+    ]
 }

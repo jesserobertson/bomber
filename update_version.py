@@ -18,12 +18,12 @@ VERSION_PY = os.path.join(PROJECT, '_version.py')
 
 VERSION_PY_TEMPLATE = """\
 \"\"\" file:  _version.py ({project})
-    description: This file is originally generated from Git information by 
-        running 'setup.py update_version'. Distribution tarballs contain a 
+    description: This file is originally generated from Git information by
+        running 'setup.py update_version'. Distribution tarballs contain a
         pre-generated copy of this file.
 \"\"\"
- 
- 
+
+
 __version__ = '{{0}}'
 """.format(project=PROJECT)
 

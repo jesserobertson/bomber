@@ -6,8 +6,10 @@
 
 from .converters import grid_to_geotiff
 from .measurements import get_measurements
+from .climate import get_climate
+from .classification import get_classification
 from ._version import __version__
-from . import measurements
+from . import measurements, climate, classification
 
 __all__ = ['__version__', 'grid_to_geotiff', 'get_measurements',
-		   'measurements']
+           'get_climate', 'measurements', 'climate']
