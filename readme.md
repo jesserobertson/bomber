@@ -26,7 +26,7 @@ Check out the measurement/observation datasets that we have available:
 Then we can get the bit that we want as a geotiff:
 
 ```python
->>> bomber.get_measurements(dataset='rainfall', year=2015, month=1)
+>>> geotiff = bomber.get_measurements(dataset='rainfall', year=2015, month=1)
 ```
 
 ```
