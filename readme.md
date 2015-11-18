@@ -11,9 +11,8 @@ To see this readme as an ipython notebook, check out https://github.com/jesserob
 Check out the measurement/observation datasets that we have available:
 
 ```python
-import bomber
-
-print(bomber.measruemetns.DATASETS)
+>>> import bomber
+>>> print(bomber.measurements.DATASETS)
 ```
 
 ```
@@ -27,7 +26,7 @@ print(bomber.measruemetns.DATASETS)
 Then we can get the bit that we want as a geotiff:
 
 ```python
-bomber.get_measurements(dataset='rainfall', year=2015, month=1)
+>>> bomber.get_measurements(dataset='rainfall', year=2015, month=1)
 ```
 
 ```
@@ -37,26 +36,27 @@ Downloaded data to rainfall_totals_month_2015010120150131.geotiff
 and then plot it using rasterio
 
 ```python
-import rasterio, numpy
-import matplotlib.pyplot as plt
-
-with rasterio.drivers():
-    with rasterio.open(geotiff) as src:
-        fig = plt.figure(figsize=(11, 11))
-        data = numpy.ma.MaskedArray(
-            data=src.read(1), 
-            mask=src.read_masks(1))
-        ax = fig.gca()
-        ax.imshow(data, cmap=plt.get_cmap('coolwarm'))
-        ax.set_aspect('equal')
-        ax.set_axis_off()
-        ax.set_title('Rainfall, January 2015')
+>>> import rasterio, numpy
+>>> import matplotlib.pyplot as plt
+>>> with rasterio.drivers():
+...     with rasterio.open(geotiff) as src:
+...         fig = plt.figure(figsize=(11, 11))
+...         data = numpy.ma.MaskedArray(
+...             data=src.read(1), 
+...             mask=src.read_masks(1))
+...         ax = fig.gca()
+...         ax.imshow(data, cmap=plt.get_cmap('coolwarm'))
+...         ax.set_aspect('equal')
+...         ax.set_axis_off()
+...         ax.set_title('Rainfall, January 2015')
 ```
+
+![Rainfall png](https://raw.githubusercontent.com/jesserobertson/bomber/master/examples/rainfall.png)
 
 You can also get the climatic average datasets as well:
 
 ```python
-print(bomber.climate.DATASETS)
+>>> print(bomber.climate.DATASETS)
 ```
 
 ```
