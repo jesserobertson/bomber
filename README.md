@@ -6,6 +6,12 @@ The BoM, in it's wisdom, have made getting their geospatial data fairly difficul
 
 To see this readme as an ipython notebook, check out https://github.com/jesserobertson/bomber/blob/master/examples/request_bom_data.ipynb
 
+## Get it!
+
+Easiest way is using pip: `pip install bomber`. 
+
+If you want to install by hand (using `python setup.py install`) you'll need [rasterio](https://github.com/mapbox/rasterio), [requests](https://github.com/kennethreitz/requests) and [numpy](https://github.com/numpy/numpy).
+
 ## Example usage
 
 Check out the measurement/observation datasets that we have available:
