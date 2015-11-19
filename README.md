@@ -1,6 +1,6 @@
 # Read data from the Bureau of Meterology (BoM)
 
-author: Jess Robertson (@jesserobertson)
+author: Jess Robertson ([@jesserobertson](http://twitter.com/jesserobertson))
 
 The BoM, in it's wisdom, have made getting their geospatial data fairly difficult. This package aims to fix that
 
@@ -8,7 +8,7 @@ To see this readme as an ipython notebook, check out https://github.com/jesserob
 
 ## Get it!
 
-Easiest way is using pip: `pip install bomber`. 
+Easiest way is using pip: `pip install bomber`. You'll need to have GDAL installed (Linux and Mac fellows can get it through homebrew/apt/yum/their package manager of choice, Windows peeps can find binaries online).
 
 If you want to install by hand (using `python setup.py install`) you'll need [rasterio](https://github.com/mapbox/rasterio), [requests](https://github.com/kennethreitz/requests) and [numpy](https://github.com/numpy/numpy).
 
